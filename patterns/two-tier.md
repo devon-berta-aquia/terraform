@@ -1,4 +1,4 @@
-# two tier
+# two tier - In Progress
 ## Introduction
 This approach is best used when we have an established deployment that we need to repeat multiple times for different environments. Usually when the architecture has been solidified and we will be performing small iterative changes for future support. The code may start out as one large terraform and then be broken down into base component modules followed by abstraction or deployment modules depending on the need and goal. Deployments being for repeating the deployment of existing resources in a known configuration and abstractions for providing a means of standardizing a common component between different providers with a common input structure.
 ## Examples
@@ -25,7 +25,12 @@ This approach is best used when we have an established deployment that we need t
     * aws-networking
 * Providers required:
     * aws: single provider being called for a particular region, module can be called multiple times with provider aliases to achieve multiple region deployments
+#### terraform sequence diagram for deployment example
+::: mermaid
+sequenceDiagram
 
+
+:::
 ### 2. Abstractions - network
 * Objectives:
     * We want to implement the creation of a common network layout in two cloud providers
@@ -40,3 +45,9 @@ This approach is best used when we have an established deployment that we need t
 * Providers required:
     * aws: one or more regional provider blocks for aws in the calling terraform file
     * google: one or more regional provider blocks for aws in the calling terraform file
+#### terraform sequence diagram for abstractions example
+::: mermaid
+sequenceDiagram
+
+
+:::

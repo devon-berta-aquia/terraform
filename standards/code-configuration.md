@@ -1,4 +1,4 @@
-# code and configuration standards
+# code and configuration standards - In Progress
 
 ## Definitions:
 * Code: TF files written in HCL or JSON that implement the logic and resource definitions required to implement the required infrastructure or component settings
