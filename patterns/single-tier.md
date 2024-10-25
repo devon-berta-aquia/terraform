@@ -22,7 +22,7 @@ This approach is best used when starting out to test and validate individual mod
 * data sources:
     * security groups by tag: Looks up security groups by tag to iterate through updating and allowing access to the bucket
 #### Terraform execution sequence for S3 Buckets
-::: mermaid
+``` mermaid
 sequenceDiagram
 terraform apply command ->> terraform: 1. runing apply command
 
@@ -65,7 +65,7 @@ provision order 2 ->> terraform state: 14. Updated with resource state
 terraform state ->> terraform: 15. provisioning complete
 
 terraform ->> terraform apply command: 16. command returns
-:::
+```
 ### 2. EC2 Instances
 * Objectives:
     * Create ec2 instance that is secured and accessible in a given region as defined by configuration.

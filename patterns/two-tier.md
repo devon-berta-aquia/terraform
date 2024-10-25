@@ -26,11 +26,11 @@ This approach is best used when we have an established deployment that we need t
 * Providers required:
     * aws: single provider being called for a particular region, module can be called multiple times with provider aliases to achieve multiple region deployments
 #### terraform sequence diagram for deployment example
-::: mermaid
+``` mermaid
 sequenceDiagram
 
 
-:::
+```
 ### 2. Abstractions - network
 * Objectives:
     * We want to implement the creation of a common network layout in two cloud providers
@@ -46,8 +46,8 @@ sequenceDiagram
     * aws: one or more regional provider blocks for aws in the calling terraform file
     * google: one or more regional provider blocks for aws in the calling terraform file
 #### terraform sequence diagram for abstractions example
-::: mermaid
+``` mermaid
 sequenceDiagram
 
 
-:::
+```
