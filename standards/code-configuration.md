@@ -21,14 +21,17 @@ This approach involves placing configurations and code in a single repository ty
 ### Code and configuration seperate repositories:
 This approach involves placing configurations and code in seperate repositories. Development of code changes is branched from main and tested in dev or lower environments before being merged to main. Consuming code should be done through versioned releases of code that are targetted via input configurations. Changes to schema for configuration inputs must be updated in configuration files along with desired version of code to be used in deployment.
 * Pros:
-    * Code is version and there is finite control over which version of code is being executed againist
+    * Code is versioned and there is finite control over which version of code is being executed againist
     * Configuration is seperate from code meaning there are fewer issues attempting to maintain the correct input configuration.
     * Existing environments can be updated iteratively instead of being forced to update configuration and code changes at the same time. Leads to better control over release and rollout of changes.
 * Cons:
-    * Introduces some oppertunity for existing deployment configurations to fall behind but will still be able to be run with current versions
+    * Introduces some oppertunity for existing deployment configurations to fall behind but will still be able to be run with defined version in configuration
 ### Code, configuration and modules seperate repositories:
-
+This approache involves placing configurations, code, and modules in seperate repositories so they can be individually referenced. Modules can be version and pulled into terraform files or other modules by github address to pull desired version of module. The calling terraform code can be stored along the application or service being deployed. The configuration inputs for an environment is stored in a seperate repository. The code and configuration repositories can be brought together through repository cloning into pipelines and modules are implicitly pulled down at execution.
 * Pros:
-    * 
+    * Modules are managed seperately and can be version controlled
+    * The terraform code calling modules can be stored along side the applications for convience.
+    * Configuration can be version and updated for various environments from a seperate repository so unlikely to have issues with merging configuration changes at the same time as code commits
 * Cons:
-    * 
+    * Requires multiple clones in a given pipeline to bring all required files together to execute deployment
+    * Introduces some oppertunity for existing deployment configurations to fall behind but will still be able to be run with defined version in configuration
