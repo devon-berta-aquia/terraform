@@ -5,20 +5,65 @@ The purpose is to show case how to consume such a repository for deployment with
 
 ## File structure:
 * Environments folder: folder holding all of the enviornment configurations files
-    * dev.tfvars: development environment configuration file
-    * prod.tfvars: production environment configuration file
-    * staging.tfvars: staging environment configuration file
-    * {branch}.tfvars: branch specific environment configuration file used for local testing and validation
-* Modules folder:
-* main.tf
-* data.tf
-* output.tf
-* provider.tf
-* terraform.tf
-* variables.tf
+    * dev.tfvars:
+        * development environment configuration file
+    * prod.tfvars:
+        * production environment configuration file
+    * staging.tfvars:
+        * staging environment configuration file
+    * {branch}.tfvars:
+        * branch specific environment configuration file used for local testing and validation
+* Modules folder: folder holding local modules developed for repository
+    * VPC Module: folder holding VPC module
+        * main.tf:
+            * terraform file holding main configurations such as modules or resources
+        * data.tf:
+            * terraform file holding data source configurations
+        * output.tf:
+            * terraform file with output definitions
+        * terraform.tf:
+            * terraform file with terraform stanza configurations like required providers and versions
+        * variables.tf:
+            * terraform file with variable definitions
+    * ASG Module: folder holding autoscale group module
+        * templates: folder containing template files
+            * user-data: user data template file used in launch template
+        * main.tf:
+            * terraform file holding main configurations such as modules or resources
+        * data.tf:
+            * terraform file holding data source configurations
+        * output.tf:
+            * terraform file with output definitions
+        * terraform.tf:
+            * terraform file with terraform stanza configurations like required providers and versions
+        * variables.tf:
+            * terraform file with variable definitions
+    * LB Module: folder holding load balancer module
+        * main.tf:
+            * terraform file holding main configurations such as modules or resources
+        * data.tf:
+            * terraform file holding data source configurations
+        * output.tf:
+            * terraform file with output definitions
+        * terraform.tf:
+            * terraform file with terraform stanza configurations like required providers and versions
+        * variables.tf:
+            * terraform file with variable definitions
+* main.tf:
+    * terraform file holding main configurations such as modules or resources
+* data.tf:
+    * terraform file holding data source configurations
+* output.tf:
+    * terraform file with output definitions
+* provider.tf:
+    * terraform file with provider configurations
+* terraform.tf:
+    * terraform file with terraform stanza configurations like required providers and versions
+* variables.tf:
+    * terraform file with variable definitions
 
 ## CI/CD Workflow:
-### Stages workflow:
+### Development workflow:
 ``` mermaid
 sequenceDiagram
 git clone ->> git branch: clone and then checkout working branch

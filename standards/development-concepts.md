@@ -9,6 +9,7 @@ When developing terraform to deploy infrastructure or components of infrastructu
 * For each module you can leverage a shared repository and sub folder structure if calling modules via folder path of cloned repos in ci/cd or via accessible github path in your parent modules. 
 * If implementing a large number of stand alone base/shared modules then it may make more sense to implement seperate repositories by module for long term support. 
 * Individual modules can be shared and hosted in a self hosted registry from a single repository with some clever automation but easier to implement automation for publishing to terraform registries from individual repositories.
+* Modules hosted in a git repository as sub folder can be referenced using format found here: https://developer.hashicorp.com/terraform/language/modules/sources#modules-in-package-sub-directories
 ## naming and file structure considerations:
 * Some common file and folder names used to break up components of terraform configurations include:
     * main.tf: stores the main logic and resources or modules being called in the terraform
